@@ -13,8 +13,6 @@ import java.util.Locale;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class UsuarioEntity {
 
     @Id
@@ -29,4 +27,44 @@ public class UsuarioEntity {
 
     private LocalDate data_cadastro;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getData_cadastro() {
+        return data_cadastro;
+    }
+
+    public void setData_cadastro(LocalDate data_cadastro) {
+        this.data_cadastro = data_cadastro;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

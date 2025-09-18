@@ -14,8 +14,6 @@ import java.util.Locale;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class VisualizacaoEntity {
 
     @Id
@@ -35,5 +33,43 @@ public class VisualizacaoEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private PerfilEntity perfil;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public Long getProgresso() {
+        return progresso;
+    }
+
+    public void setProgresso(Long progresso) {
+        this.progresso = progresso;
+    }
+
+    public VideoEntity getVideo() {
+        return video;
+    }
+
+    public void setVideo(VideoEntity video) {
+        this.video = video;
+    }
+
+    public PerfilEntity getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(PerfilEntity perfil) {
+        this.perfil = perfil;
+    }
 }
