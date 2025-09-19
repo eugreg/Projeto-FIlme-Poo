@@ -67,4 +67,15 @@ public class UsuarioEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", data_cadastro=" + data_cadastro +
+                '}';
+    }
 }

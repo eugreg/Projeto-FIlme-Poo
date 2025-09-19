@@ -31,6 +31,57 @@ public class AvaliacaoEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private VideoEntity video;
 
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "AvaliacaoEntity{" +
+                "id=" + id +
+                ", nota=" + nota +
+                ", comentario='" + comentario + '\'' +
+                ", video=" + video +
+                ", perfil=" + perfil +
+                '}';
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getNota() {
+        return nota;
+    }
+
+    public void setNota(Long nota) {
+        this.nota = nota;
+    }
+
+    public VideoEntity getVideo() {
+        return video;
+    }
+
+    public void setVideo(VideoEntity video) {
+        this.video = video;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public PerfilEntity getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(PerfilEntity perfil) {
+        this.perfil = perfil;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     private PerfilEntity perfil;
 

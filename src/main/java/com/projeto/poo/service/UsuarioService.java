@@ -2,10 +2,12 @@ package com.projeto.poo.service;
 
 import com.projeto.poo.entity.UsuarioEntity;
 import com.projeto.poo.repository.UsuarioRepository;
+import com.projeto.poo.repository.VisualizacaoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 @Service
@@ -13,10 +15,12 @@ import java.util.Scanner;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final VisualizacaoRepository visualizacaoRepository;
 
     // Injeção via construtor (recomendado)
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, VisualizacaoRepository visualizacaoRepository) {
         this.usuarioRepository = usuarioRepository;
+        this.visualizacaoRepository = visualizacaoRepository;
     }
 
     public void salvarUsuario() {
@@ -47,5 +51,14 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
 
         System.out.println("Usuário salvo com sucesso!");
+    }
+
+    public void usuarioQueMaisAssistiu() {
+        List<UsuarioEntity> usuarios = visualizacaoRepository.findUsuariosMaisAtivos();
+
+        if (!usuarios.isEmpty()) {
+            System.out.println(usuarios.get(0));
+        }
+
     }
 }

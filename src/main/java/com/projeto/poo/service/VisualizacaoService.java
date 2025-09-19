@@ -33,6 +33,8 @@ public class VisualizacaoService {
     public void salvarVisualizacao() {
         Scanner scanner = new Scanner(System.in);
 
+        List<VideoEntity> videoEntities = videoRepository.findAll();
+        System.out.println(videoEntities);
 
         System.out.println("Digite o ID do vídeo que está sendo assistido:");
         Long videoId = Long.valueOf(scanner.nextLine());
@@ -43,6 +45,9 @@ public class VisualizacaoService {
             return;
         }
 
+        List<PerfilEntity> perfilEntities = perfilRepository.findAll();
+        System.out.println(perfilEntities);
+        
         System.out.println("Digite o ID do perfil que está assistindo:");
         Long perfilId = Long.valueOf(scanner.nextLine());
         PerfilEntity perfil = perfilRepository.findById(perfilId).orElse(null);

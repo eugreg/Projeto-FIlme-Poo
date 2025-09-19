@@ -49,4 +49,13 @@ public class PerfilEntity {
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
+
+    @Override
+    public String toString() {
+        return "PerfilEntity{" +
+                "id=" + id +
+                ", nomePerfil='" + nomePerfil + '\'' +
+                ", usuario=" + usuario +
+                '}';
+    }
 }

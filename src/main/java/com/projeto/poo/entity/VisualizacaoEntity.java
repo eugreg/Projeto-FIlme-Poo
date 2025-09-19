@@ -72,4 +72,15 @@ public class VisualizacaoEntity {
     public void setPerfil(PerfilEntity perfil) {
         this.perfil = perfil;
     }
+
+    @Override
+    public String toString() {
+        return "VisualizacaoEntity{" +
+                "id=" + id +
+                ", dataHora=" + dataHora +
+                ", progresso=" + progresso +
+                ", video=" + video +
+                ", perfil=" + perfil +
+                '}';
+    }
 }

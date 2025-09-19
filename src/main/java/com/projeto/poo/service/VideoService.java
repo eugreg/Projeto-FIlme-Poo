@@ -5,7 +5,10 @@ import com.projeto.poo.entity.VideoEntity;
 import com.projeto.poo.repository.CategoriaRepository;
 import com.projeto.poo.repository.VideoRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -81,5 +84,19 @@ public class VideoService {
         List<VideoEntity> videoEntities = videoRepository.findByCategoriaNameOrderByTitulo(name);
 
         System.out.println(videoEntities);
+    }
+
+    public void getTop10Videos() {
+        Pageable topTen = PageRequest.of(0, 10);
+        List<VideoEntity> video= videoRepository.findTop10ByVisualizacoes(topTen);
+
+        System.out.println(video);
+    }
+
+    public void getTop10VideosByAvaliacao() {
+        Pageable topTen = PageRequest.of(0, 10);
+        List<VideoEntity> video= videoRepository.findTop10ByAvaliacao(topTen);
+
+        System.out.println(video);
     }
 }

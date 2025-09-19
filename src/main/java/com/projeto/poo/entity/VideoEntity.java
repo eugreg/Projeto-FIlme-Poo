@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Locale;
 
 @Entity
@@ -68,6 +69,12 @@ public class VideoEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private CategoriaEntity categoria;
+
+    @OneToMany(mappedBy = "video", fetch = FetchType.LAZY)
+    private List<VisualizacaoEntity> visualizacao;
+
+    @OneToMany(mappedBy = "video", fetch = FetchType.LAZY)
+    private List<AvaliacaoEntity> avaliacao;
 
     @Override
     public String toString() {

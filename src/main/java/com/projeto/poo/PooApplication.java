@@ -32,10 +32,8 @@ public class PooApplication {
 
 	private static void consulta(ApplicationContext context){
 		VideoService videoService = context.getBean(VideoService.class);
-		PerfilService perfilService = context.getBean(PerfilService.class);
 		UsuarioService usuarioService = context.getBean(UsuarioService.class);
-		VisualizacaoService visualizacaoService = context.getBean(VisualizacaoService.class);
-		CategoriaService categoriaService = context.getBean(CategoriaService.class);
+
 
 
 		Scanner scanner = new Scanner(System.in);
@@ -43,6 +41,9 @@ public class PooApplication {
 		System.out.println("===== MENU DE CONSULTA =====");
 		System.out.println("1 - Buscar Video pelo nome");
 		System.out.println("2 - Buscar Video por Categoria");
+		System.out.println("3 - Top 10 Mais vistos");
+		System.out.println("4 - Top 10 Mais Avaliados");
+		System.out.println("5 - Usuario que mais Assitiu");
 
 		int opcao = scanner.nextInt();
 		scanner.nextLine();
@@ -53,6 +54,15 @@ public class PooApplication {
 				break;
 			case 2:
 				videoService.buscarVideoCategoria();
+				break;
+			case 3:
+				videoService.getTop10Videos();
+				break;
+			case 4:
+				videoService.getTop10VideosByAvaliacao();
+				break;
+			case 5:
+				usuarioService.usuarioQueMaisAssistiu();
 				break;
 		}
 
