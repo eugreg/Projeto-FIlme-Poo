@@ -7,6 +7,7 @@ import com.projeto.poo.repository.VideoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,13 +41,45 @@ public class VideoService {
         System.out.println("Digite a descrição do vídeo:");
         String descricao = scanner.nextLine();
 
+        System.out.println("Digite a Duração do vídeo:");
+        int duracao = scanner.nextInt();
+
         VideoEntity video = new VideoEntity();
         video.setTitulo(titulo);
         video.setCategoria(categoriaSelecionada);
         video.setDescricao(descricao);
+        video.setDuracao(Long.valueOf(duracao));
 
         videoRepository.save(video);
 
         System.out.println("Vídeo salvo com sucesso!");
+    }
+
+    public void buscarVideoPorNome(){
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite o nome do video: ");
+        String name = scanner.nextLine();
+        VideoEntity video = videoRepository.findByTitulo(name);
+
+        System.out.println(video);
+
+    }
+
+    public void buscarVideoCategoria(){
+        Scanner scanner = new Scanner(System.in);
+
+
+
+        List<CategoriaEntity> categorias = categoriaRepository.findAll();
+        System.out.println("Categorias disponíveis: " + categorias);
+
+        System.out.println("Digite o nome da Categoria: ");
+        String name = scanner.nextLine();
+
+        List<VideoEntity> videoEntities = videoRepository.findByCategoriaNameOrderByTitulo(name);
+
+        System.out.println(videoEntities);
     }
 }

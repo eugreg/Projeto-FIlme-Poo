@@ -23,6 +23,7 @@ public class CategoriaService {
         String name = scanner.nextLine();
 
         CategoriaEntity categoria = new CategoriaEntity();
+        categoria.setName(name);
 
         categoriaRepository.save(categoria);
 

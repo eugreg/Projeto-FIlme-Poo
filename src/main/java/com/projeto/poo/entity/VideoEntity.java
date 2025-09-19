@@ -69,4 +69,14 @@ public class VideoEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private CategoriaEntity categoria;
 
+    @Override
+    public String toString() {
+        return "VideoEntity{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", duracao=" + duracao +
+                ", categoria=" + categoria +
+                '}';
+    }
 }

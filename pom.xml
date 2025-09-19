@@ -70,6 +70,7 @@
 							<artifactId>lombok</artifactId>
 						</path>
 					</annotationProcessorPaths>
+
 				</configuration>
 			</plugin>
 			<plugin>
@@ -82,6 +83,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+
 				</configuration>
 			</plugin>
 		</plugins>

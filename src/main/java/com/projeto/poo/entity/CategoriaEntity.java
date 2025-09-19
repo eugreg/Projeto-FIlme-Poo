@@ -37,4 +37,7 @@ public class CategoriaEntity {
     public void setName(String name) {
         this.name = name;
     }
+    public String toString() {
+        return "Categoria{id=" + id + ", nome='" + name + "'}";
+    }
 }
